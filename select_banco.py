@@ -12,6 +12,7 @@ connection = pymysql.connect(
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
 )
+#VAMOS BUSCAR OS DADOS
 with connection:
     with  connection.cursor() as cursor:
         menor_id = input('Digite o menor id ')
