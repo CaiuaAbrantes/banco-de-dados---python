@@ -1,0 +1,13 @@
+# Pasta de dados do MySQL
+mysql_206/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
