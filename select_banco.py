@@ -14,13 +14,17 @@ connection = pymysql.connect(
 )
 with connection:
     with  connection.cursor() as cursor:
+        menor_id = input('Digite o menor id ')
+        maior_id = input('Digite o maior id ')
         sql = (
-            f'SELECT * FROM {TABLE_NAME}'
+            f'SELECT * FROM {TABLE_NAME} '
+            'WHERE id BETWEEN %s AND %s '
         )
-        cursor.execute(sql)
+        cursor.execute(sql, (menor_id, maior_id))
         
         data = cursor.fetchall()
         
         for row in data:
             _id, name, age = row
             print(_id, name, age)
+
