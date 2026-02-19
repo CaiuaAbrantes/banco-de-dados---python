@@ -36,7 +36,14 @@ with connection:
             "n" : "Luiz",
             "i" : 27,
         }
-        result = cursor.execute(sql, data1)
+
+        data2 = (
+            {'n': 'Caio', 'i':19},
+            {'n': 'Julia', 'i':21},
+            {'n': 'Tomas', 'i':24},
+        )
+        #result = cursor.execute(sql, data1)
+        result = cursor.executemany(sql, data2)
         connection.commit()
         
 
