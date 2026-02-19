@@ -43,8 +43,9 @@ with connection:
             {'n': 'Tomas', 'i':24},
         )
         #result = cursor.execute(sql, data1)
-        result = cursor.executemany(sql, data2)
+        #result = cursor.executemany(sql, data2)
         connection.commit()
         
 
     cursor.close()
+   
