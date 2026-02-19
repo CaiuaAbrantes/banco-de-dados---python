@@ -29,10 +29,14 @@ with connection:
         sql = (
             f'INSERT INTO {TABLE_NAME} '
             '(nome, idade)' 
-            'VALUES(%s, %s) '
+            'VALUES(%(n)s, %(i)s) '
         )
         data = ('Joao' , 17)
-        result = cursor.execute(sql, data)
+        data1 = {
+            "n" : "Luiz",
+            "i" : 27,
+        }
+        result = cursor.execute(sql, data1)
         connection.commit()
         
 
