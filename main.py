@@ -13,8 +13,17 @@ connection = pymysql.connect(
 
 with connection:
     with  connection.cursor() as cursor:
-        #SQL
-        print(cursor)
+        cursor.execute(
+            'CREATE TABLE IF NOT EXISTS customers ('
+            'id INT NOT NULL AUTO_INCREMENT, '
+            'nome VARCHAR(50) NOT NULL, '
+            'idade INT NOT NULL , '
+            'PRIMARY KEY (id)'
+            ') ' 
+            
+
+        )
+        connection.commit()
         
 
     cursor.close()
