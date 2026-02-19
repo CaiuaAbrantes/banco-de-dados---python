@@ -2,6 +2,8 @@ import pymysql #type: ignore
 import dotenv #type: ignore
 import os
 
+TABLE_NAME = 'customers'
+
 dotenv.load_dotenv()
 
 connection = pymysql.connect(
@@ -14,15 +16,23 @@ connection = pymysql.connect(
 with connection:
     with  connection.cursor() as cursor:
         cursor.execute(
-            'CREATE TABLE IF NOT EXISTS customers ('
+            f'CREATE TABLE IF NOT EXISTS {TABLE_NAME} ('
             'id INT NOT NULL AUTO_INCREMENT, '
             'nome VARCHAR(50) NOT NULL, '
             'idade INT NOT NULL , '
             'PRIMARY KEY (id)'
             ') ' 
-            
-
         )
+        connection.commit()
+
+    with  connection.cursor() as cursor:
+        sql = (
+            f'INSERT INTO {TABLE_NAME} '
+            '(nome, idade)' 
+            'VALUES(%s, %s) '
+        )
+        data = ('Joao' , 17)
+        result = cursor.execute(sql, data)
         connection.commit()
         
 
