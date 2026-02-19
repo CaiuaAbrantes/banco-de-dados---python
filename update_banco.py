@@ -13,12 +13,13 @@ connection = pymysql.connect(
     database=os.environ['MYSQL_DATABASE'],
 )
 
-#VAMOS APAGAR O USUARIO COM ID 3
+#VAMOS EDITAR O NOME DO USUARIO COM ID 1
 with connection:
     with  connection.cursor() as cursor:
         sql = (
-            f'DELETE FROM {TABLE_NAME} '
-            'WHERE id = %s'
+            f'UPDATE {TABLE_NAME} '
+            'SET nome= %s '
+            'WHERE id = %s ' 
         )
-        cursor.execute(sql, (3,))
+        cursor.execute(sql, ('Zacaraias', 1))
         connection.commit()
