@@ -1,0 +1,4 @@
+dotenv==0.9.9
+PyMySQL==1.1.2
+python-dotenv==1.2.1
+types-PyMySQL==1.1.0.20251220

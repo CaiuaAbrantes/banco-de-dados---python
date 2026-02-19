@@ -1,6 +1,10 @@
 # Pasta de dados do MySQL
 mysql_206/
 
+# Ambiente virtual Python
+venv/
+.venv/
+
 # Variáveis de ambiente
 .env
 .env.local
